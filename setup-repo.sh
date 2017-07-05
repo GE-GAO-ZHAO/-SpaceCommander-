@@ -49,8 +49,8 @@ function ensure_hook_is_installed() {
 function ensure_git_ignores_clang_format_file() {
   grep -q ".clang-format" ".gitignore"
   if [ $? -gt 0 ]; then
-    echo
-    echo "#代码检查配置文件"
+    echo >> ".gitignore"
+    echo "#代码检查配置文件" >> ".gitignore"
     echo ".clang-format" >> ".gitignore"
   fi
 }
