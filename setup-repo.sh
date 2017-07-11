@@ -11,12 +11,12 @@ pre_commit_file='.git/hooks/pre-commit';
 function ensure_pre_commit_file_exists() {
   if [ -e "$pre_commit_file" ]; then
     return 0
-  fi 
+  fi
   # It's a symlink
   if [ -h "$pre_commit_file" ]; then
     pre_commit_file=$(readlink "$pre_commit_file")
     return 0
-  fi 
+  fi
 
   if [ -d ".git" ]; then
     $(mkdir -p ".git/hooks");
@@ -46,5 +46,18 @@ function ensure_hook_is_installed() {
   fi
 }
 
-ensure_pre_commit_file_exists && ensure_pre_commit_file_is_executable && ensure_hook_is_installed
+function ensure_git_ignores_clang_format_file() {
+  grep -q ".clang-format" ".gitignore"
+  if [ $? -gt 0 ]; then
+    echo >> ".gitignore"
+    echo "#代码检查配置文件" >> ".gitignore"
+    echo ".clang-format" >> ".gitignore"
+  fi
+}
 
+function symlink_clang_format() {
+  $(ln -sf "$DIR/.clang-format" ".clang-format")
+}
+
+
+ensure_pre_commit_file_exists && ensure_pre_commit_file_is_executable && ensure_hook_is_installed && ensure_git_ignores_clang_format_file && symlink_clang_format
