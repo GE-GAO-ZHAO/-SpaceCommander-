@@ -56,6 +56,7 @@ function ensure_git_ignores_clang_format_file() {
 }
 
 function symlink_clang_format() {
+  $(rm -f .clang-format)
   $(cp "$DIR/.clang-format" ".clang-format")
 }
 
