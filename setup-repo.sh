@@ -46,9 +46,5 @@ function ensure_hook_is_installed() {
   fi
 }
 
-function symlink_clang_format() {
-  $(ln -sf "$DIR/.clang-format" ".clang-format")
-}
-
-ensure_pre_commit_file_exists && ensure_pre_commit_file_is_executable && ensure_hook_is_installed && symlink_clang_format
+ensure_pre_commit_file_exists && ensure_pre_commit_file_is_executable && ensure_hook_is_installed
 
