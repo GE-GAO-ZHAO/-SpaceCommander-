@@ -32,7 +32,7 @@ BreakConstructorInitializersBeforeComma: false
 
 BinPackArguments: true
 BinPackParameters: true
-ColumnLimit: 0
+ColumnLimit: 200
 ConstructorInitializerAllOnOneLineOrOnePerLine: true
 DerivePointerAlignment: false
 ExperimentalAutoDetectBinPacking: false
@@ -59,7 +59,7 @@ IndentWidth:     4
 TabWidth:        8
 UseTab:          Never
 BreakBeforeBraces: Custom
-BraceWrapping: 
+BraceWrapping:
     AfterClass: true
     AfterControlStatement: false
     AfterEnum: false
@@ -87,4 +87,3 @@ ForEachMacros:   [ foreach, Q_FOREACH, BOOST_FOREACH ]
 SpaceBeforeParens: ControlStatements
 DisableFormat:   false
 ...
-
