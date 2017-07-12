@@ -57,7 +57,7 @@ function ensure_git_ignores_clang_format_file() {
 
 function symlink_clang_format() {
   $(rm -f .clang-format)
-  $(cp -rp "$DIR/.clang-format" ".clang-format")
+  $(cp -rp "$DIR"/.clang-format ".clang-format")
 }
 
 ensure_pre_commit_file_exists && ensure_pre_commit_file_is_executable && ensure_hook_is_installed && ensure_git_ignores_clang_format_file && symlink_clang_format
