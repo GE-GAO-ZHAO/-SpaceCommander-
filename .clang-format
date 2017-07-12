@@ -4,7 +4,7 @@ IndentNestedBlocks: false
 AllowNewlineBeforeBlockParameter: false
 
 Language:        Cpp
-# BasedOnStyle:  Google
+BasedOnStyle:  Google
 AccessModifierOffset: -1
 ConstructorInitializerIndentWidth: 4
 SortIncludes: false
@@ -15,11 +15,11 @@ AlignOperands: false
 AlignTrailingComments: true
 
 AllowAllParametersOfDeclarationOnNextLine: false
-AllowShortBlocksOnASingleLine: true
+AllowShortBlocksOnASingleLine: false
 AllowShortCaseLabelsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: false
 AllowShortIfStatementsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: All
+AllowShortFunctionsOnASingleLine: false
 AllowShortLoopsOnASingleLine: false
 
 AlwaysBreakAfterDefinitionReturnType: false
@@ -32,7 +32,7 @@ BreakConstructorInitializersBeforeComma: false
 
 BinPackArguments: true
 BinPackParameters: true
-ColumnLimit: 200
+ColumnLimit: 160
 ConstructorInitializerAllOnOneLineOrOnePerLine: true
 DerivePointerAlignment: false
 ExperimentalAutoDetectBinPacking: false
