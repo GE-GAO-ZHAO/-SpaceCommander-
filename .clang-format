@@ -4,7 +4,7 @@ IndentNestedBlocks: false
 AllowNewlineBeforeBlockParameter: false
 
 Language:        Cpp
-BasedOnStyle:  Google
+BasedOnStyle:  LLVM
 AccessModifierOffset: -1
 ConstructorInitializerIndentWidth: 4
 SortIncludes: false
@@ -60,12 +60,12 @@ TabWidth:        8
 UseTab:          Never
 BreakBeforeBraces: Custom
 BraceWrapping:
-    AfterClass: true
+    AfterClass: false
     AfterControlStatement: false
     AfterEnum: false
-    AfterFunction: true
-    AfterNamespace: true
-    AfterObjCDeclaration: true
+    AfterFunction: false
+    AfterNamespace: false
+    AfterObjCDeclaration: false
     AfterStruct: false
     AfterUnion: false
     BeforeCatch: false
