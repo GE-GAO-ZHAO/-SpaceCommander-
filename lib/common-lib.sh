@@ -35,10 +35,10 @@ function objc_files_to_format() {
 
 # Returns a list of all Objective-C files in the git repository.
 # If .formatting-directory exists, then only directories specified in .formatting-directory will be included (see directories_to_check).
-# If .formatting-directory-ignore exists, then directories specified in .formatting-directory-ignore will be excluded (see directories_to_ignore). 
+# If .formatting-directory-ignore exists, then directories specified in .formatting-directory-ignore will be excluded (see directories_to_ignore).
 function all_valid_objc_files_in_repo() {
 	directories_to_check
 	files=$(git ls-tree --name-only --full-tree -r HEAD -- $locations_to_diff | grep -e '\.m$' -e '\.mm$' -e '\.h$' -e '\.hh$')
 	directories_to_ignore
-	echo "$files" | grep -v 'Pods/' | grep -v 'Carthage/' >&1
+	echo "$files" | grep -v 'Pods/' | grep -v 'node_modules/' | grep -v 'Carthage/' >&1
 }
