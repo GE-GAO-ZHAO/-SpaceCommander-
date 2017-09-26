@@ -5,6 +5,9 @@
 #
 # Copyright 2015 Square, Inc
 
+# Allows us to read user input below, assigns stdin to keyboard
+exec < /dev/tty
+
 IFS=$'\n'
 export CDPATH=""
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
@@ -31,12 +34,19 @@ function format_objc() {
     fi
   done
   if [ $success -gt 0 ]; then
-      echo -e "\n🚀  Format and stage all affected files:\n\t \"$DIR\"/format-objc-files.sh -s"
+      echo -e "🔴  是 否 自 动 格 式 化 代 码 并 commit ? (y / n):"
+      read choice
+      if [ $choice ] && [ $choice == y ]; then 
+          ${DIR}/format-objc-files.sh -s
+          success=0
+      else 
+          echo -e "\n🔴  您 提 交 的 代 码 风 格 不 符, 请 运 行 下 面 指 令 修 复.\n💔  或 是 您 可 以 使 用 git commit --no-verify 强 制 跳 过"
+          echo -e "\n🚀  Format and stage all affected files:\n\t \"$DIR\"/format-objc-files.sh -s"
+          success=1
+      fi
   fi
   return $success
 }
-
-success=0
-format_objc || (echo -e "\n🔴  您 提 交 的 代 码 风 格 不 符, 请 运行👆 上面👆 指令 修复.\n💔  或 是 您 可 以 使 用 git commit --no-verify 强 制 跳 过" && success=1)
-
+format_objc
+success=$?
 exit $success
