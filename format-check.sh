@@ -8,7 +8,7 @@ then rm -rf .spacecommander
 fi
 mkdir .spacecommander
 cd .spacecommander
-git clone git@ofordcode.ofo.so:pengfeng/objc-format-check.git spacecommander
+git clone git@git.koolearn-inc.com:k12/iOS/SpaceCommand.git spacecommander
 cd $orgin
 bash "$(pwd)/.spacecommander/spacecommander/setup-repo.sh"
 exit 0
