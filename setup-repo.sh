@@ -52,7 +52,7 @@ function ensure_git_ignores_clang_format_file() {
     echo >> ".gitignore"
     echo "#OCLint代码检查配置文件" >> ".gitignore"
     echo ".clang-format" >> ".gitignore"
-    echo ".spacecommander"
+    echo ".spacecommander" >> ".gitignore"
   fi
 }
 
