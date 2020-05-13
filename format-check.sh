@@ -4,7 +4,7 @@ if [ ! -d .git ];
 then exit 0
 fi
 if [ -d .spacecommander ];
-then rm -rf .spacecommander
+then exit 0
 fi
 mkdir .spacecommander
 cd .spacecommander
