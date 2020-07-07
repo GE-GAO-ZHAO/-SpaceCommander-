@@ -50,7 +50,6 @@ function ensure_git_ignores_clang_format_file() {
   grep -q ".clang-format" ".gitignore"
   if [ $? -gt 0 ]; then
     echo >> ".gitignore"
-    echo "#OCLint代码检查配置文件" >> ".gitignore"
   fi
 }
 
